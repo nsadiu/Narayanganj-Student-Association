@@ -600,16 +600,141 @@
                 padding: 1rem;
             }
 
+            .page-header {
+                padding: 3rem 1.5rem;
+            }
+
             .page-header h1 {
                 font-size: 2rem;
             }
 
+            .page-header p {
+                font-size: 1rem;
+            }
+
             .contact-content {
                 grid-template-columns: 1fr;
+                padding: 0 1.5rem;
+                gap: 2rem;
+            }
+
+            .contact-form-section,
+            .contact-info-section {
+                padding: 2rem 1.5rem;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+            }
+
+            .contact-info-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            /* Developer button - icon only on mobile */
+            .get-app-btn {
+                font-size: 0 !important;
+                padding: 0.65rem 1rem;
+                width: 48px;
+                overflow: hidden;
+            }
+
+            .get-app-btn i {
+                font-size: 1.2rem !important;
+                margin-right: 0 !important;
+            }
+
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 70px;
+            }
+
+            .page-header {
+                padding: 2rem 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .page-header p {
+                font-size: 0.9rem;
+            }
+
+            .contact-content {
+                padding: 0 1rem;
+            }
+
+            .contact-form-section,
+            .contact-info-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-form-section h2,
+            .contact-info-card h3 {
+                font-size: 1.5rem;
+            }
+
+            .form-group label {
+                font-size: 0.9rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 0.9rem;
+                padding: 0.8rem;
+            }
+
+            .submit-btn {
+                padding: 0.9rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-info-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .contact-icon {
+                margin: 0 auto;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .footer-content {
+                padding: 0 1.5rem;
+            }
+
+            .footer-bottom {
+                padding: 0 1.5rem;
+                font-size: 0.8rem;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
             }
         }
 
@@ -738,23 +863,11 @@
                     
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h4>Phone</h4>
-                            <p>+880 1XXX-XXXXXX<br>
-                            +880 1XXX-XXXXXX</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>nsadiu@example.com<br>
-                            president@nsadiu.org</p>
+                            <p>studentassociation.narayanganj@gmail.com</p>
                         </div>
                     </div>
                     

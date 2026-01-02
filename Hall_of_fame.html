@@ -170,9 +170,14 @@
             transition: var(--transition);
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
             text-decoration: none;
             white-space: nowrap;
+        }
+
+        .get-app-btn::after {
+            display: none;
         }
 
         .get-app-btn:hover {
@@ -621,8 +626,25 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
             .mobile-menu-toggle {
                 display: block;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
             }
 
             .nav-menu {
@@ -635,6 +657,13 @@
                 padding: 1rem 0;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
                 display: none;
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
+                z-index: 999;
+            }
+
+            [data-theme="dark"] .nav-menu {
+                background: var(--bg-light);
             }
 
             .nav-menu.active {
@@ -648,8 +677,43 @@
                 border-bottom: 1px solid #f3f4f6;
             }
 
+            [data-theme="dark"] .nav-item a {
+                border-bottom-color: rgba(255, 255, 255, 0.1);
+            }
+
+            /* Hide text in developer button on mobile, show only icon */
+            .get-app-btn {
+                width: 48px !important;
+                height: 48px !important;
+                padding: 0 !important;
+                border-radius: 12px;
+                justify-content: center;
+                overflow: hidden;
+                min-width: 48px;
+                font-size: 0 !important;
+                gap: 0 !important;
+            }
+
+            .get-app-btn span {
+                display: none !important;
+            }
+
+            .get-app-btn i {
+                margin: 0 !important;
+                font-size: 1.2rem !important;
+            }
+
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+            }
+
             .page-header {
-                padding: 3rem 5%;
+                padding: 3rem 1.5rem;
             }
 
             .page-header h1 {
@@ -664,10 +728,20 @@
 
             .page-header p {
                 font-size: 1rem;
+                padding: 0 1rem;
             }
 
             .container {
-                padding: 2.5rem 5%;
+                padding: 2.5rem 1.5rem;
+            }
+
+            .section-intro h2 {
+                font-size: 1.6rem;
+            }
+
+            .section-intro p {
+                font-size: 1rem;
+                padding: 0 1rem;
             }
 
             .hall-grid {
@@ -711,40 +785,106 @@
                 font-size: 0.9rem;
             }
 
-            .section-intro h2 {
-                font-size: 1.6rem;
+            .achievements-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
             }
 
-            .section-intro p {
+            .achievement-item {
+                font-size: 0.85rem;
+                padding: 0.6rem;
+            }
+
+            .member-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat-item {
+                padding: 0.8rem;
+            }
+
+            .stat-value {
+                font-size: 1.3rem;
+            }
+
+            .stat-label {
+                font-size: 0.75rem;
+            }
+
+            .contact-links {
+                gap: 0.6rem;
+            }
+
+            .contact-btn {
+                width: 40px;
+                height: 40px;
                 font-size: 1rem;
+            }
+
+            .footer {
+                padding: 2rem 1.5rem 1rem;
             }
 
             .footer-content {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
-            .get-app-btn span {
-                display: none;
+            .footer-section h3 {
+                font-size: 1rem;
             }
 
-            .get-app-btn {
-                padding: 0.65rem 1rem;
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.85rem;
             }
 
-            .nav-controls {
-                gap: 0.5rem;
-            }
-
-            .theme-toggle {
-                width: 44px;
-                height: 44px;
+            .footer-bottom {
+                font-size: 0.8rem;
+                padding-top: 1rem;
             }
         }
 
         @media (max-width: 480px) {
             body {
-                padding-top: 70px;
+                padding-top: 68px;
+            }
+
+            .nav-container {
+                padding: 0 0.8rem;
+            }
+
+            .logo {
+                width: 42px;
+                height: 42px;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .get-app-btn {
+                width: 44px !important;
+                height: 44px !important;
+                padding: 0 !important;
+                overflow: hidden;
+                min-width: 44px;
+                font-size: 0 !important;
+                gap: 0 !important;
+            }
+
+            .get-app-btn span {
+                display: none !important;
+            }
+
+            .get-app-btn i {
+                font-size: 1.1rem !important;
+                margin: 0 !important;
+            }
+
+            .theme-toggle {
+                width: 42px;
+                height: 42px;
             }
 
             .page-header {
@@ -752,15 +892,16 @@
             }
 
             .page-header h1 {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
             .page-header h1 i {
-                font-size: 1.7rem;
+                font-size: 1.6rem;
             }
 
             .page-header p {
                 font-size: 0.9rem;
+                padding: 0 0.5rem;
             }
 
             .container {
@@ -773,6 +914,11 @@
 
             .section-intro p {
                 font-size: 0.9rem;
+                padding: 0 0.5rem;
+            }
+
+            .hall-grid {
+                gap: 1.5rem;
             }
 
             .hall-card {
@@ -782,6 +928,8 @@
             .award-badge {
                 width: 45px;
                 height: 45px;
+                top: 0.8rem;
+                right: 0.8rem;
             }
 
             .award-badge i {
@@ -794,7 +942,7 @@
             }
 
             .member-name {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .member-title {
@@ -807,33 +955,75 @@
 
             .member-description {
                 font-size: 0.85rem;
+                line-height: 1.5;
             }
 
-            .member-achievements {
-                gap: 0.4rem;
+            .achievements-grid {
+                gap: 0.6rem;
             }
 
             .achievement-item {
                 font-size: 0.8rem;
-                padding: 0.4rem 0.8rem;
+                padding: 0.5rem 0.7rem;
             }
 
             .achievement-item i {
                 font-size: 0.75rem;
             }
 
-            .footer-content {
-                padding: 0 1.5rem;
+            .member-stats {
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8rem;
             }
 
-            .footer-bottom {
-                padding: 0 1.5rem;
-                padding-top: 1.5rem;
+            .stat-item {
+                padding: 0.7rem 0.5rem;
+            }
+
+            .stat-value {
+                font-size: 1.2rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .contact-links {
+                gap: 0.5rem;
+            }
+
+            .contact-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 0.9rem;
+            }
+
+            .footer {
+                padding: 1.5rem 1rem 1rem;
+            }
+
+            .footer-content {
+                gap: 1.2rem;
+            }
+
+            .footer-section h3 {
+                font-size: 0.95rem;
+            }
+
+            .footer-section p,
+            .footer-section a {
                 font-size: 0.8rem;
             }
 
-            .logo-text {
-                font-size: 1.1rem;
+            .footer-bottom {
+                font-size: 0.75rem;
+                padding-top: 1rem;
+            }
+
+            .social-links a {
+                width: 34px;
+                height: 34px;
+                font-size: 0.85rem;
             }
         }
 
@@ -1035,7 +1225,63 @@
                 </div>
             </div>
 
-            <!-- Appreciation Card 3: Mohima Jannat -->
+            <!-- Appreciation Card 3: Fozla Rabbi -->
+            <div style="max-width: 900px; margin: 0 auto 3rem; background: var(--bg-white); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow); border: 2px solid rgba(239, 68, 68, 0.3);">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="font-size: 2rem; font-weight: 800; color: #ef4444; margin-bottom: 0.8rem; font-family: 'SolaimanLipi', Arial;">
+                        নীরব নেতৃত্বের দৃঢ় অভিভাবক
+                    </h2>
+                    <div style="width: 80px; height: 3px; background: #ef4444; margin: 0 auto;"></div>
+                </div>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="images/executives/rabbi.jpg" alt="ফজলে রাব্বি" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 6px solid #ef4444; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.3);" onerror="this.src='https://via.placeholder.com/180x180?text=FR'">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin: 1.5rem 0 0.5rem; font-family: 'SolaimanLipi', Arial;">ফজলে রাব্বি</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); font-weight: 500;">পুরকৌশল বিভাগ</p>
+                </div>
+                
+                <div style="position: relative; background: var(--bg-light); padding: 2.5rem; border-radius: 20px; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid rgba(239, 68, 68, 0.2);">
+                    <div style="position: absolute; top: 1.5rem; left: 1.5rem; font-size: 3rem; color: #ef4444; opacity: 0.15; font-family: Georgia, serif;">"</div>
+                    <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; font-size: 3rem; color: #ef4444; opacity: 0.15; font-family: Georgia, serif;">"</div>
+                    
+                    <div style="padding: 0 1.5rem; text-align: justify; line-height: 2; font-family: 'SolaimanLipi', Arial; font-size: 1.05rem; color: var(--text-dark);">
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem; border-left: 3px solid #ef4444;">
+                            <i class="fas fa-shield-alt" style="color: #ef4444; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            সংগঠনের ভেতরে বা বাইরে উদ্ভূত প্রতিটি বিষয় তিনি গুরুত্বের সঙ্গে দেখেছেন এবং তাৎক্ষণিকভাবে কার্যকর সমাধান নিশ্চিত করেছেন। সংকট মুহূর্তে তাঁর সিদ্ধান্ত, দ্রুত পদক্ষেপ এবং সবার প্রতি সমান দৃষ্টি সংগঠনের কার্যক্রমকে করেছে সুসংগঠিত ও গতিশীল।
+                        </p>
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem;">
+                            <i class="fas fa-user-shield" style="color: #ef4444; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            নেতৃত্বে ছিলেন দৃঢ়, আচরণে ছিলেন বিনয়ী—
+                            একজন প্রকৃত অভিভাবকের মতোই তিনি সংগঠনকে আগলে রেখেছেন নিরবে কিন্তু দৃঢ়তায়।
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(239, 68, 68, 0.1)); border-radius: 12px; border-left: 4px solid #ef4444;">
+                        <p style="font-weight: 600; color: #ef4444; text-align: center; font-size: 1.1rem; line-height: 1.8; font-family: 'SolaimanLipi', Arial;">
+                            <i class="fas fa-star" style="font-size: 0.8rem; margin-right: 0.5rem;"></i>
+                            দৃঢ় নেতৃত্ব, সমস্যা সমাধানের দক্ষতা এবং সংগঠনের প্রতি আন্তরিকতার প্রকৃত উদাহরণ
+                            <i class="fas fa-star" style="font-size: 0.8rem; margin-left: 0.5rem;"></i>
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2.5rem; padding: 2rem; background: linear-gradient(135deg, var(--bg-card), var(--bg-light)); border-radius: 15px; border: 2px solid #ef4444; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; left: -20px; width: 80px; height: 80px; background: #ef4444; opacity: 0.05; border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; background: #ef4444; opacity: 0.05; border-radius: 50%;"></div>
+                    <div style="position: relative; z-index: 1;">
+                        <i class="fas fa-heart" style="color: #ef4444; font-size: 1.5rem; margin-bottom: 1rem;"></i>
+                        <p style="font-family: 'SolaimanLipi', Arial; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); line-height: 1.9; margin-bottom: 0.5rem;">
+                            কৃতজ্ঞতা ও আন্তরিক সম্মান জানিয়ে
+                        </p>
+                        <p style="font-family: 'SolaimanLipi', Arial; font-size: 1rem; font-weight: 500; color: var(--text-gray);">
+                            তাঁর এই দায়িত্বশীল নেতৃত্ব, সমস্যা সমাধানের দক্ষতা এবং সংগঠনের প্রতি আন্তরিকতার স্বীকৃতিস্বরূপ আমরা জানাই গভীর কৃতজ্ঞতা ও সম্মান।
+                        </p>
+                        <div style="width: 100px; height: 2px; background: #ef4444; margin: 1rem auto 0;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appreciation Card 4: Mohima Jannat -->
             <div style="max-width: 900px; margin: 0 auto 3rem; background: var(--bg-white); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow); border: 2px solid rgba(192, 132, 252, 0.3);">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <h2 style="font-size: 2rem; font-weight: 800; color: #9333ea; margin-bottom: 0.8rem; font-family: 'SolaimanLipi', Arial;">
@@ -1220,7 +1466,73 @@
                 </div>
             </div>
 
-            <!-- Appreciation Card 6: Mahbub Hasan Ratul -->
+            <!-- Appreciation Card 6: Marjiya Shahin Mim -->
+            <div style="max-width: 900px; margin: 0 auto 3rem; background: var(--bg-white); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow); border: 2px solid rgba(244, 114, 182, 0.3);">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 style="font-size: 2rem; font-weight: 800; color: #f472b6; margin-bottom: 0.8rem; font-family: 'SolaimanLipi', Arial;">
+                        সংস্কৃতির প্রকাশে সৌন্দর্যের ছোঁয়া
+                    </h2>
+                    <div style="width: 80px; height: 3px; background: #f472b6; margin: 0 auto;"></div>
+                </div>
+                
+                <div style="text-align: center; margin: 2rem 0;">
+                    <img src="images/executives/marjia.jpg" alt="মারজিয়া শাহিন মিম" style="width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 6px solid #f472b6; box-shadow: 0 8px 25px rgba(244, 114, 182, 0.3);" onerror="this.src='https://via.placeholder.com/180x180?text=MSM'">
+                    <h3 style="font-size: 1.8rem; font-weight: 700; color: var(--text-dark); margin: 1.5rem 0 0.5rem; font-family: 'SolaimanLipi', Arial;">মারজিয়া শাহিন মিম</h3>
+                    <p style="font-size: 1.1rem; color: var(--text-gray); font-weight: 500;">ফুড অ্যান্ড নিউট্রিশন বিভাগ</p>
+                </div>
+                
+                <div style="position: relative; background: var(--bg-light); padding: 2.5rem; border-radius: 20px; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 2px solid rgba(244, 114, 182, 0.2);">
+                    <div style="position: absolute; top: 1.5rem; left: 1.5rem; font-size: 3rem; color: #f472b6; opacity: 0.15; font-family: Georgia, serif;">"</div>
+                    <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; font-size: 3rem; color: #f472b6; opacity: 0.15; font-family: Georgia, serif;">"</div>
+                    
+                    <div style="padding: 0 1.5rem; text-align: justify; line-height: 2; font-family: 'SolaimanLipi', Arial; font-size: 1.05rem; color: var(--text-dark);">
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem; border-left: 3px solid #f472b6;">
+                            <i class="fas fa-landmark" style="color: #f472b6; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            ঐতিহ্যের হাট আয়োজনের মাধ্যমে নারায়ণগঞ্জের পরিচয় ও ঐতিহ্যকে উপস্থাপনে মারজিয়া শাহিন মিম রেখেছেন এক অনন্য অবদান।
+                            নারায়ণগঞ্জের ব্র্যান্ডিংকে তুলে ধরতে তিনি নিষ্ঠা, সৌন্দর্য ও আত্মবিশ্বাসের সঙ্গে দায়িত্ব পালন করেছেন।
+                        </p>
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem;">
+                            <i class="fas fa-users" style="color: #f472b6; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            দলগত কাজের প্রতিটি ধাপে তিনি সবার সঙ্গে কাঁধে কাঁধ মিলিয়ে কাজ করেছেন।
+                            সহযোগিতার মনোভাব ও আন্তরিক অংশগ্রহণের মাধ্যমে আয়োজনের পরিবেশকে তিনি করেছেন প্রাণবন্ত ও সুসংগঠিত।
+                        </p>
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem;">
+                            <i class="fas fa-user-circle" style="color: #f472b6; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            এই আয়োজনের মডেল হিসেবে তিনি কেবল একজন অংশগ্রহণকারী ছিলেন না—
+                            তিনি ছিলেন নারায়ণগঞ্জের ঐতিহ্য, সংস্কৃতি ও পরিচয়ের জীবন্ত প্রতিচ্ছবি।
+                        </p>
+                        <p style="margin-bottom: 1.5rem; position: relative; padding-left: 1rem;">
+                            <i class="fas fa-award" style="color: #f472b6; margin-right: 0.5rem; font-size: 0.9rem;"></i>
+                            নিজ দায়িত্বের প্রতি নিষ্ঠা, উপস্থাপনার সৌন্দর্য ও প্রতিনিধিত্বের দক্ষতার মাধ্যমে তিনি আয়োজনকে করেছেন আরও মর্যাদাপূর্ণ ও স্মরণীয়।
+                        </p>
+                    </div>
+                    
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, rgba(244, 114, 182, 0.05), rgba(244, 114, 182, 0.1)); border-radius: 12px; border-left: 4px solid #f472b6;">
+                        <p style="font-weight: 600; color: #f472b6; text-align: center; font-size: 1.1rem; line-height: 1.8; font-family: 'SolaimanLipi', Arial;">
+                            <i class="fas fa-star" style="font-size: 0.8rem; margin-right: 0.5rem;"></i>
+                            সৌন্দর্য, আত্মবিশ্বাস ও ঐতিহ্যবোধের মেলবন্ধনে তিনি আয়োজনকে দিয়েছেন প্রাণ ও পরিচয়
+                            <i class="fas fa-star" style="font-size: 0.8rem; margin-left: 0.5rem;"></i>
+                        </p>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2.5rem; padding: 2rem; background: linear-gradient(135deg, var(--bg-card), var(--bg-light)); border-radius: 15px; border: 2px solid #f472b6; position: relative; overflow: hidden;">
+                    <div style="position: absolute; top: -20px; left: -20px; width: 80px; height: 80px; background: #f472b6; opacity: 0.05; border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: -20px; right: -20px; width: 80px; height: 80px; background: #f472b6; opacity: 0.05; border-radius: 50%;"></div>
+                    <div style="position: relative; z-index: 1;">
+                        <i class="fas fa-heart" style="color: #f472b6; font-size: 1.5rem; margin-bottom: 1rem;"></i>
+                        <p style="font-family: 'SolaimanLipi', Arial; font-size: 1.2rem; font-weight: 700; color: var(--text-dark); line-height: 1.9; margin-bottom: 0.5rem;">
+                            কৃতজ্ঞতা ও আন্তরিক সম্মান জানিয়ে
+                        </p>
+                        <p style="font-family: 'SolaimanLipi', Arial; font-size: 1rem; font-weight: 500; color: var(--text-gray);">
+                            এই স্বীকৃতি প্রদান করা হলো তাঁর মূল্যবান অবদানের প্রতি।
+                        </p>
+                        <div style="width: 100px; height: 2px; background: #f472b6; margin: 1rem auto 0;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Appreciation Card 7: Mahbub Hasan Ratul -->
             <div style="max-width: 900px; margin: 0 auto 3rem; background: var(--bg-white); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow); border: 2px solid rgba(99, 102, 241, 0.3);">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <h2 style="font-size: 2rem; font-weight: 800; color: #6366f1; margin-bottom: 0.8rem; font-family: 'SolaimanLipi', Arial;">
@@ -1280,7 +1592,7 @@
                 </div>
             </div>
 
-            <!-- Appreciation Card 7: Jubayer Ahmed -->
+            <!-- Appreciation Card 8: Jubayer Ahmed -->
             <div style="max-width: 900px; margin: 0 auto 3rem; background: var(--bg-white); border-radius: 20px; padding: 3rem; box-shadow: var(--shadow); border: 2px solid rgba(20, 184, 166, 0.3);">
                 <div style="text-align: center; margin-bottom: 2rem;">
                     <h2 style="font-size: 2rem; font-weight: 800; color: #14b8a6; margin-bottom: 0.8rem; font-family: 'SolaimanLipi', Arial;">

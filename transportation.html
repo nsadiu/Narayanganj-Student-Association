@@ -482,6 +482,10 @@
             overflow: hidden;
         }
 
+        [data-theme="dark"] .bus-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-light) 100%);
+        }
+
         .bus-card::before {
             content: '';
             position: absolute;
@@ -532,7 +536,7 @@
             margin: 0;
             font-size: 1.1rem;
             font-weight: 700;
-            color: var(--text-color);
+            color: var(--text-dark);
         }
 
         .bus-numbers-display {
@@ -569,7 +573,7 @@
         }
 
         .bus-info {
-            color: var(--text-secondary);
+            color: var(--text-gray);
             font-size: 0.9rem;
             display: flex;
             align-items: center;
@@ -1005,8 +1009,25 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            body {
+                padding-top: 70px;
+            }
+
             .mobile-menu-toggle {
                 display: block;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                width: 45px;
+                height: 45px;
+            }
+
+            .logo-text {
+                font-size: 1.1rem;
             }
 
             .nav-menu {
@@ -1020,6 +1041,8 @@
                 padding: 1rem 0;
                 box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
                 display: none;
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
             }
 
             .nav-menu.active {
@@ -1033,12 +1056,173 @@
                 border-bottom: 1px solid #f3f4f6;
             }
 
+            /* Hide text in developer button on mobile, show only icon */
+            .get-app-btn {
+                width: 48px;
+                height: 48px;
+                padding: 0;
+                border-radius: 12px;
+                justify-content: center;
+            }
+
+            .get-app-btn span {
+                display: none;
+            }
+
+            .get-app-btn i {
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+            .theme-toggle {
+                width: 44px;
+                height: 44px;
+            }
+
+            .nav-controls {
+                gap: 0.5rem;
+            }
+
+            .page-header {
+                padding: 2.5rem 5%;
+            }
+
             .page-header h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                line-height: 1.2;
+            }
+
+            .page-header h1 i {
+                display: block;
+                margin-bottom: 0.5rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding: 2rem 4%;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .section-title i {
+                font-size: 1.8rem;
+            }
+
+            .discipline-notice {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .discipline-notice h3 {
+                font-size: 1.2rem;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .discipline-notice ul {
+                grid-template-columns: 1fr;
+            }
+
+            .discipline-notice li {
+                font-size: 0.9rem;
+                padding: 0.8rem 1rem;
             }
 
             .schedule-grid {
                 grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .schedule-card {
+                padding: 1.5rem;
+            }
+
+            .schedule-group {
+                margin-bottom: 1.5rem;
+            }
+
+            .schedule-group-header {
+                padding: 1.2rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .header-content p {
+                font-size: 0.85rem;
+            }
+
+            .time-badge {
+                padding: 0.6rem 1.2rem;
+                font-size: 1.2rem;
+            }
+
+            .bus-grid {
+                grid-template-columns: 1fr;
+                padding: 1.5rem;
+                gap: 1rem;
+            }
+
+            .bus-card {
+                padding: 1.2rem;
+            }
+
+            .bus-card.single {
+                max-width: 100%;
+            }
+
+            .bus-numbers-display {
+                flex-wrap: wrap;
+            }
+
+            .bus-badge {
+                font-size: 0.85rem;
+                padding: 0.4rem 0.8rem;
+            }
+
+            .info-banner {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.2rem;
+            }
+
+            .info-banner i {
+                font-size: 1.8rem;
+            }
+
+            .info-banner p {
+                font-size: 0.9rem;
+            }
+
+            .route-section {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+
+            .route-header {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+
+            .route-header h2 {
+                font-size: 1.5rem;
             }
 
             .route-line {
@@ -1047,6 +1231,50 @@
 
             .route-stop {
                 padding: 1rem 0;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .route-marker {
+                left: -2.55rem;
+            }
+
+            .route-stop:first-child .route-marker,
+            .route-stop:last-child .route-marker {
+                left: -2.75rem;
+            }
+
+            .stop-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
+
+            .stop-info h4 {
+                font-size: 1rem;
+            }
+
+            .stop-info p {
+                font-size: 0.85rem;
+            }
+
+            .footer {
+                padding: 2rem 4% 1rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .footer-section h3 {
+                font-size: 1rem;
+            }
+
+            .footer-section p,
+            .footer-section a {
+                font-size: 0.85rem;
             }
         }
 
